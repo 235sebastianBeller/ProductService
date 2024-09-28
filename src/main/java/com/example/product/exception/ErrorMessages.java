@@ -1,4 +1,4 @@
-package com.example.product;
+package com.example.product.exception;
 
 public enum ErrorMessages {
     PRODUCT_NOT_FOUND("Product Not Found"),PRODUCT_BAD_REQUEST("Name is required");

@@ -1,5 +1,11 @@
-package com.example.product;
+package com.example.product.controller;
 
+import com.example.product.model.ProductDto;
+import com.example.product.model.UpdateProductDto;
+import com.example.product.service.AllProductService;
+import com.example.product.service.CreateProductService;
+import com.example.product.service.GetProductService;
+import com.example.product.service.UpdateProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

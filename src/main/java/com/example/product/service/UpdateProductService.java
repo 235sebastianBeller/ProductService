@@ -1,4 +1,9 @@
-package com.example.product;
+package com.example.product.service;
+import com.example.product.Command;
+import com.example.product.IProductRepository;
+import com.example.product.model.Product;
+import com.example.product.model.ProductDto;
+import com.example.product.model.UpdateProductDto;
 import org.springframework.stereotype.Service;
 import java.util.*;
 @Service

@@ -1,5 +1,7 @@
-package com.example.product;
+package com.example.product.exception;
 
+import com.example.product.model.ErrorResponse;
+import com.example.product.ProductBadRequestException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

@@ -1,5 +1,9 @@
-package com.example.product;
+package com.example.product.service;
 
+import com.example.product.IProductRepository;
+import com.example.product.Query;
+import com.example.product.model.Product;
+import com.example.product.model.ProductDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -7,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class AllProductService implements Query<Void, List<ProductDto>>{
+public class AllProductService implements Query<Void, List<ProductDto>> {
     private final IProductRepository iproductRepository;
 
 

@@ -1,5 +1,10 @@
-package com.example.product;
+package com.example.product.service;
 
+import com.example.product.Command;
+import com.example.product.IProductRepository;
+import com.example.product.ProductBadRequestException;
+import com.example.product.model.Product;
+import com.example.product.model.ProductDto;
 import org.springframework.stereotype.Service;
 import io.micrometer.common.util.StringUtils;
 
