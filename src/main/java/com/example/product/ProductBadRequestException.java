@@ -5,3 +5,4 @@ public class ProductBadRequestException extends RuntimeException{
         super(ErrorMessages.PRODUCT_BAD_REQUEST.getMessage());
     }
 }
+
