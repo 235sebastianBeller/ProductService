@@ -14,7 +14,7 @@ public class CreateProductService implements Command<ProductDto,String> {
     public String execute(ProductDto input) {
         Product product = input.toProduct();
         if(StringUtils.isEmpty(product.getName())){
-            throw new ProductBadRequestException("Name is required");
+            throw new ProductBadRequestException();
         }
        int id= iProductRepository.save(product).getId();
        return String.format("Product with id %d created", id);
