@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
-@AllArgsConstructor
+@AllArgsConstructor//
 public class ProductDto {
     private final int id;
     private final String name;

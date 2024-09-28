@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+//@RequestMapping("/greet")
 public class ProductController {
 
     AllProductService allProductService;
@@ -32,31 +33,18 @@ public class ProductController {
 
     @PostMapping
     public ResponseEntity<String> create(@RequestBody ProductDto productDto) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(
-                createProductService.execute(productDto)
-        );
+        return this.createProductService.execute(productDto);
     }
     @GetMapping("{id}")
     public ResponseEntity<ProductDto> obtain(@PathVariable Integer id) {
         return this.getProductService.execute(id);
 
     }
-    @DeleteMapping
-    public ResponseEntity<String> delete() {
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Deleted");
-    }
-    @PutMapping
-    public ResponseEntity<String> update() {
-        return ResponseEntity.status(HttpStatus.OK).body("Updated");
-
-    }
     @PutMapping("{id}")
     public ResponseEntity<ProductDto> update(@PathVariable Integer id,
                                              @RequestBody ProductDto productDto) {
-        return ResponseEntity.status(HttpStatus.OK).body(
-                this.updateProductService.execute(new UpdateProductDto(id,
-                        productDto))
-        );
+        return this.updateProductService.execute(new UpdateProductDto(id,
+                productDto));
 
     }
     @GetMapping("all")
