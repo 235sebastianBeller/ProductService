@@ -11,19 +11,28 @@ public class ProductController {
 
     AllProductService allProductService;
     CreateProductService createProductService;
+    UpdateProductService updateProductService;
+    GetProductService getProductService;
 
-    ProductController(AllProductService allProductService, CreateProductService createProductService){
+    ProductController(AllProductService allProductService,
+                      CreateProductService createProductService,
+                      UpdateProductService updateProductService,
+                      GetProductService getProductService){
         this.allProductService = allProductService;
         this.createProductService = createProductService;
+        this.updateProductService=updateProductService;
+        this.getProductService=getProductService;
     }
 
     @PostMapping
     public ResponseEntity<String> create(@RequestBody ProductDto productDto) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(createProductService.excute(productDto));
+        return ResponseEntity.status(HttpStatus.CREATED).body(
+                createProductService.execute(productDto)
+        );
     }
-    @GetMapping
-    public ResponseEntity<String> obtain() {
-        return ResponseEntity.status(HttpStatus.OK).body("The product");
+    @GetMapping("{id}")
+    public ResponseEntity<ProductDto> obtain(@PathVariable Integer id) {
+        return this.getProductService.execute(id);
 
     }
     @DeleteMapping
@@ -35,11 +44,18 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.OK).body("Updated");
 
     }
+    @PutMapping("{id}")
+    public ResponseEntity<ProductDto> update(@PathVariable Integer id,
+                                             @RequestBody ProductDto productDto) {
+        return ResponseEntity.status(HttpStatus.OK).body(
+                this.updateProductService.execute(new UpdateProductDto(id,
+                        productDto))
+        );
+
+    }
     @GetMapping("all")
     public ResponseEntity<List<ProductDto>> index() {
-        return ResponseEntity.status(HttpStatus.OK).body(
-                this.allProductService.execute(null)
-        );
+        return this.allProductService.execute(null);
     }
 
 

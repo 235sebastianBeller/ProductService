@@ -1,5 +1,7 @@
 package com.example.product;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,9 +16,11 @@ public class AllProductService implements Query<Void, List<ProductDto>>{
     }
 
     @Override
-    public List<ProductDto> execute(Void input){
+    public ResponseEntity<List<ProductDto>> execute(Void input){
         List<Product> products = iproductRepository.findAll();
-        return products.stream().map(ProductDto::new).toList();
+        return  ResponseEntity.status(HttpStatus.OK).body(
+                products.stream().map(ProductDto::new).toList()
+        );
     }
 
 }
